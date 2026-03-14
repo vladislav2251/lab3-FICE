@@ -12,16 +12,19 @@ public class User
     {
         get { return accessLevel; }
     }
-
-
+    
     public User(string name, int accessLevel)
     {
         Id = ++Users;
         Name = name;
         this.accessLevel = accessLevel;
     }
-
-
+    
+    public void IncreaseAccessLevel()
+    {
+        accessLevel++;
+    }
+    
     public bool IsAdmin()
     {
         return accessLevel >= 5;
