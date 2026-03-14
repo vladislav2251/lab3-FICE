@@ -34,6 +34,12 @@ public class User
     {
         return accessLevel >= 5;
     }
+
+    public override string ToString()
+    {
+        string role = IsAdmin() ? "Admin" : "User";
+        return $"ID: [{Id}] Name: {Name} Level: {accessLevel} Role: {role}";;
+    }
 };
 public class Program
 {
