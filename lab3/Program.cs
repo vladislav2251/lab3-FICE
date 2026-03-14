@@ -13,6 +13,11 @@ public class User
         get { return accessLevel; }
     }
     
+    public static int GetUserCount()
+    {
+        return Users;
+    }
+    
     public User(string name, int accessLevel)
     {
         Id = ++Users;
