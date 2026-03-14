@@ -17,3 +17,8 @@ public class User
         return AccessLevel >= 5;
     }
 };
+public class Program
+{
+    public static void Main()
+    {}
+}
