@@ -18,6 +18,9 @@ public class User
         return Users;
     }
     
+    public User(string name) : this(name, 0)
+    {}
+    
     public User(string name, int accessLevel)
     {
         Id = ++Users;
@@ -38,7 +41,7 @@ public class User
     public override string ToString()
     {
         string role = IsAdmin() ? "Admin" : "User";
-        return $"ID: [{Id}] Name: {Name} Level: {accessLevel} Role: {role}";;
+        return $"ID: [{Id}] Name: {Name} Level: {accessLevel} Role: {role}";
     }
 };
 public class Program
