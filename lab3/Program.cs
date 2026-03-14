@@ -1,3 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using System;
+public class User
+{
+    readonly int Id;
+    private string Name;
+    private int accessLebel;
 
-Console.WriteLine("Hello, World!");
+    private static int users = 0;
+};
