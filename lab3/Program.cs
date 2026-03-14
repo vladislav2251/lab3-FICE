@@ -1,4 +1,5 @@
 ﻿using System;
+
 public class User
 {
     private readonly int Id;
@@ -12,12 +13,19 @@ public class User
         get { return accessLevel; }
     }
 
+
+    public User(string name, int accessLevel)
+    {
+        Id = ++Users;
+        Name = name;
+        this.accessLevel = accessLevel;
+    }
+
+
     public bool IsAdmin()
     {
         return accessLevel >= 5;
     }
-    
-    
 };
 public class Program
 {
