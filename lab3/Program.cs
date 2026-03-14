@@ -11,4 +11,9 @@ public class User
     {
         AccessLevel++;
     }
+
+    public bool IsAdmin()
+    {
+        return AccessLevel >= 5;
+    }
 };
