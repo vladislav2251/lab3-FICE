@@ -48,13 +48,22 @@ public class Program
 {
     public static void Main()
     {
-        User user1 = new User("Стас");
-        User user2 = new User("Анна", 4);
+        User user1 = new User("Аннс");
+        User user2 = new User("Стас", 4);
         User user3 = new User("Мама", 6);
         
         Console.WriteLine(user1);
         Console.WriteLine(user2);
         Console.WriteLine(user3);
+
+        Console.WriteLine($"Всього користувачів: {User.GetUserCount()}");
         
+        Console.WriteLine($"Стас адмін? {user2.IsAdmin()}");
+        
+        Console.WriteLine($"Підвищую рівень Стаса");
+        user2.IncreaseAccessLevel();
+        
+        Console.WriteLine(user2);
+        Console.WriteLine($"Чи є Стас адміном? {user2.IsAdmin()}");
     }
 }
