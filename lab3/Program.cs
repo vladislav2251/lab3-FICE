@@ -47,5 +47,14 @@ public class User
 public class Program
 {
     public static void Main()
-    {}
+    {
+        User user1 = new User("Стас");
+        User user2 = new User("Анна", 4);
+        User user3 = new User("Мама", 6);
+        
+        Console.WriteLine(user1);
+        Console.WriteLine(user2);
+        Console.WriteLine(user3);
+        
+    }
 }
