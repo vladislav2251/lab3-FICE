@@ -3,19 +3,21 @@ public class User
 {
     private readonly int Id;
     private string Name;
-    private int AccessLevel = 0;
+    private int accessLevel;
 
     private static int Users = 0;
 
-    public void IncreaseAccessLevel()
+    public int AccessLevel
     {
-        AccessLevel++;
+        get { return accessLevel; }
     }
 
     public bool IsAdmin()
     {
-        return AccessLevel >= 5;
+        return accessLevel >= 5;
     }
+    
+    
 };
 public class Program
 {
