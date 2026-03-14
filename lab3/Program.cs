@@ -1,7 +1,7 @@
 ﻿using System;
 public class User
 {
-    readonly int Id;
+    private readonly int Id;
     private string Name;
     private int accessLebel;
 
