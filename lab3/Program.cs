@@ -48,7 +48,7 @@ public class Program
 {
     public static void Main()
     {
-        User user1 = new User("Аннс");
+        User user1 = new User("Анна");
         User user2 = new User("Стас", 4);
         User user3 = new User("Мама", 6);
         
