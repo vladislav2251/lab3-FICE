@@ -1,9 +1,17 @@
 ﻿using System;
+using System.IO;
+using System.Text.Json;
+using System.Text.Json.Serialization;
 
 public class User
 {
-    private readonly int Id;
+    [JsonInclude]
+    private int Id;
+    
+    [JsonInclude]
     private string Name;
+    
+    [JsonInclude]
     private int accessLevel;
 
     private static int Users = 0;
@@ -17,6 +25,8 @@ public class User
     {
         return Users;
     }
+    
+    public User() {}
     
     public User(string name) : this(name, 0)
     {}
@@ -43,7 +53,20 @@ public class User
         string role = IsAdmin() ? "Admin" : "User";
         return $"ID: [{Id}] Name: {Name} Level: {accessLevel} Role: {role}";
     }
-};
+
+    public void SaveToJson(string filePath)
+    {
+        var options = new JsonSerializerOptions { IncludeFields = true };
+        File.WriteAllText(filePath, JsonSerializer.Serialize(this, options));
+    }
+
+    public static User LoadFromJson(string filePath)
+    {
+        var options = new JsonSerializerOptions { IncludeFields = true };
+        return JsonSerializer.Deserialize<User>(File.ReadAllText(filePath), options);
+    }
+}
+
 public class Program
 {
     public static void Main()
@@ -65,5 +88,10 @@ public class Program
         
         Console.WriteLine(user2);
         Console.WriteLine($"Чи є Стас адміном? {user2.IsAdmin()}");
+
+        user1.SaveToJson("user1.json");
+        User loadedUser = User.LoadFromJson("user1.json");
+        
+        Console.WriteLine($"\nВідновлений об'єкт: {loadedUser}");
     }
 }
